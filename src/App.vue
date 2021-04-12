@@ -1,29 +1,26 @@
 <template>
-  <div id="app">
-    <router-view/>
-  </div>
+   <v-app id="inspire">
+    <v-app-bar app>
+      <v-toolbar-title>WealthBook</v-toolbar-title>
+    </v-app-bar>
 
+    <v-main>
+      <router-view></router-view>
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
 
-#nav {
-  padding: 30px;
-}
+export default {
+  name: 'App',
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  components: {
+   
+  },
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+  data: () => ({
+    drawer: null
+  }),
+};
+</script>
