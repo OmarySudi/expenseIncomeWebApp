@@ -43,7 +43,7 @@
                         <v-card-text>
                             <v-text-field
                                 ref="password"
-                                :append-icon="(showPassword?'mdi-eye':'mdi-eye-off')"
+                                :append-icon="(showPassword?'mdi-eye-off':'mdi-eye')"
                                 @click:append="toggleShowPassword()"
                                 :type="(showPassword?'text':'password')"
                                 label="Password"
