@@ -25,7 +25,7 @@
                             <v-btn
                                 color="primary"
                                 text
-                                @click="dialog = false"
+                                @click="closeDialog()"
                             >
                                 OK
                             </v-btn>
@@ -155,12 +155,12 @@ computed:{
          this.isResetPassword = false;
          
           auth.applyActionCode(this.oobCode).then(()=>{
-              this.emailVerifyMessage = "Your email has been successfully verified"
+              this.emailVerifyMessage = "Your email has been successfully verified. click OK to login"
               this.dialogTitle = "Email Verification"
               this.alertType = "success"
               this.dialog = true;
           }).catch((error)=>{
-              this.emailVerifyMessage = "Start the process again from the app. "+error.message;
+              this.emailVerifyMessage = error.message+" click OK to request a verification link";
               this.dialogTitle = "Email Verification"
               this.alertType = "warning"
               this.dialog = true;
@@ -175,7 +175,7 @@ computed:{
             this.isResetPassword = true;
             this.userEmail = email;
         }).catch((error)=>{
-            this.emailVerifyMessage = "Start the process again from the app. "+error.message;
+            this.emailVerifyMessage = error.message+" Click OK to request to start again";
             this.dialogTitle = "Password Reset"
             this.alertType = "warning"
             this.dialog = true;
@@ -190,14 +190,14 @@ computed:{
             this.isResetPassword = false;
             this.dialogTitle = "Password Reset"
             this.alertType = "success"
-            this.emailVerifyMessage = "You have been successfully resetted your password. Go to the app to continue"
+            this.emailVerifyMessage = "You have been successfully resetted your password. Click OK to login"
             this.dialog = true;
 
         }).catch((error)=>{
 
             console.log(error);
             this.isResetPassword = false;
-            this.emailVerifyMessage = "Start the process again from the app. "+error.message;
+            this.emailVerifyMessage = error.message+" click 0K to start the process";
             this.dialogTitle = "Password Reset"
             this.alertType = "warning"
             this.dialog = true;
@@ -216,6 +216,11 @@ computed:{
             return true;
         else
             return false;
+     },
+
+     closeDialog(){
+        this.dialog = false;
+        window.location.href = "https://expenseincome.page.link/redirect";
      }
 
  },
