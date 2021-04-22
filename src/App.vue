@@ -1,7 +1,7 @@
 <template>
    <v-app id="inspire">
     <v-app-bar app>
-      <v-toolbar-title>ExpenseIncomeBook</v-toolbar-title>
+      <v-toolbar-title>ExpenseBook</v-toolbar-title>
     </v-app-bar>
 
     <v-main>
